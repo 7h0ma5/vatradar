@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  color: #222;
+  font-family: Helvetica, sans-serif;
+  height: 100%;
+}
+
+#sidebar {
+  float: left;
+  width: 20%;
+  height: 100%;
+}
+
+#map {
+  float: left;
+  height: 100%;
+  width: 80%;
+  box-shadow: 0 0 8px #888;
+}
+
+.plane-info h1 {
+  color: #fff;
+  background-color: #222;
+  padding: 5px 0;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: -1px -1px 0 #666;
+}
+
+.plane-info table {
+  width: 100%;
+}
+
+.plane-info .realname {
+  padding: 15px;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.plane-info td {
+  vertical-align: top;
+  padding: 2px 5px;
+}
+
+.plane {
+  background: url(images/planes.png) no-repeat;
+}
+
+.plane-label {
+  position: absolute;
+  left: 25px;
+  top: 4px;
+}
+
+.plane-callsign {
+  display: block;
+  font-size: 9px;
+  font-weight: bold;
+  color: #fff;
+  padding: 1px 3px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.plane-180 { background-position: 0px 0px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-195 { background-position: -48px 0px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-210 { background-position: -96px 0px; width: 18px; height: 22px; margin: -11px 0 0 -9px; }
+.plane-225 { background-position: -144px 0px; width: 19px; height: 20px; margin: -10px 0 0 -9px; }
+.plane-240 { background-position: -192px 0px; width: 20px; height: 19px; margin: -9px 0 0 -10px; }
+.plane-255 { background-position: -240px 0px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-270 { background-position: -288px 0px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-285 { background-position: -336px 0px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-300 { background-position: -384px 0px; width: 21px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-315 { background-position: -432px 0px; width: 19px; height: 20px; margin: -10px 0 0 -9px; }
+.plane-330 { background-position: -480px 0px; width: 18px; height: 22px; margin: -11px 0 0 -9px; }
+.plane-345 { background-position: -528px 0px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-0 { background-position: -576px 0px; width: 21px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-15 { background-position: -624px 0px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-30 { background-position: -672px 0px; width: 19px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-45 { background-position: -720px 0px; width: 19px; height: 19px; margin: -9px 0 0 -9px; }
+.plane-60 { background-position: -768px 0px; width: 21px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-75 { background-position: -816px 0px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-90 { background-position: -864px 0px; width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-105 { background-position: -912px 0px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-120 { background-position: -960px 0px; width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-135 { background-position: -1008px 0px; width: 19px; height: 20px; margin: -10px 0 0 -9px; }
+.plane-150 { background-position: -1056px 0px; width: 19px; height: 22px; margin: -11px 0 0 -9px; }
+.plane-165 { background-position: -1104px 0px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+
+.plane-a380-180 { background-position: 0px -48px; width: 34px; height: 33px; margin: -16px 0 0 -17px; }
+.plane-a380-195 { background-position: -48px -48px; width: 33px; height: 33px; margin: -16px 0 0 -16px; }
+.plane-a380-210 { background-position: -96px -48px; width: 31px; height: 32px; margin: -16px 0 0 -15px; }
+.plane-a380-225 { background-position: -144px -48px; width: 28px; height: 29px; margin: -14px 0 0 -14px; }
+.plane-a380-240 { background-position: -192px -48px; width: 31px; height: 32px; margin: -16px 0 0 -15px; }
+.plane-a380-255 { background-position: -240px -48px; width: 32px; height: 35px; margin: -17px 0 0 -16px; }
+.plane-a380-270 { background-position: -288px -48px; width: 31px; height: 35px; margin: -17px 0 0 -15px; }
+.plane-a380-285 { background-position: -336px -48px; width: 32px; height: 35px; margin: -17px 0 0 -16px; }
+.plane-a380-300 { background-position: -384px -48px; width: 30px; height: 31px; margin: -15px 0 0 -15px; }
+.plane-a380-315 { background-position: -432px -48px; width: 29px; height: 30px; margin: -15px 0 0 -14px; }
+.plane-a380-330 { background-position: -480px -48px; width: 31px; height: 32px; margin: -16px 0 0 -15px; }
+.plane-a380-345 { background-position: -528px -48px; width: 33px; height: 33px; margin: -16px 0 0 -16px; }
+.plane-a380-0 { background-position: -576px -48px; width: 34px; height: 33px; margin: -16px 0 0 -17px; }
+.plane-a380-15 { background-position: -624px -48px; width: 33px; height: 33px; margin: -16px 0 0 -16px; }
+.plane-a380-30 { background-position: -672px -48px; width: 31px; height: 32px; margin: -16px 0 0 -15px; }
+.plane-a380-45 { background-position: -720px -48px; width: 28px; height: 29px; margin: -14px 0 0 -14px; }
+.plane-a380-60 { background-position: -768px -48px; width: 31px; height: 31px; margin: -15px 0 0 -15px; }
+.plane-a380-75 { background-position: -816px -48px; width: 33px; height: 34px; margin: -17px 0 0 -16px; }
+.plane-a380-90 { background-position: -864px -48px; width: 31px; height: 36px; margin: -18px 0 0 -15px; }
+.plane-a380-105 { background-position: -912px -48px; width: 32px; height: 35px; margin: -17px 0 0 -16px; }
+.plane-a380-120 { background-position: -960px -48px; width: 31px; height: 32px; margin: -16px 0 0 -15px; }
+.plane-a380-135 { background-position: -1008px -48px; width: 29px; height: 30px; margin: -15px 0 0 -14px; }
+.plane-a380-150 { background-position: -1056px -48px; width: 31px; height: 31px; margin: -15px 0 0 -15px; }
+.plane-a380-165 { background-position: -1104px -48px; width: 34px; height: 33px; margin: -16px 0 0 -17px; }
+
+.plane-b747-180 { background-position: 0px -96px; width: 28px; height: 31px; margin: -15px 0 0 -14px; }
+.plane-b747-195 { background-position: -48px -96px; width: 27px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-b747-210 { background-position: -96px -96px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-b747-225 { background-position: -144px -96px; width: 26px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-b747-240 { background-position: -192px -96px; width: 29px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b747-255 { background-position: -240px -96px; width: 31px; height: 28px; margin: -14px 0 0 -15px; }
+.plane-b747-270 { background-position: -288px -96px; width: 30px; height: 28px; margin: -14px 0 0 -15px; }
+.plane-b747-285 { background-position: -336px -96px; width: 30px; height: 28px; margin: -14px 0 0 -15px; }
+.plane-b747-300 { background-position: -384px -96px; width: 28px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b747-315 { background-position: -432px -96px; width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+.plane-b747-330 { background-position: -480px -96px; width: 25px; height: 30px; margin: -15px 0 0 -12px; }
+.plane-b747-345 { background-position: -528px -96px; width: 27px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-b747-0 { background-position: -576px -96px; width: 27px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-b747-15 { background-position: -624px -96px; width: 27px; height: 32px; margin: -16px 0 0 -13px; }
+.plane-b747-30 { background-position: -672px -96px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-b747-45 { background-position: -720px -96px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-b747-60 { background-position: -768px -96px; width: 29px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b747-75 { background-position: -816px -96px; width: 30px; height: 28px; margin: -14px 0 0 -15px; }
+.plane-b747-90 { background-position: -864px -96px; width: 30px; height: 29px; margin: -14px 0 0 -15px; }
+.plane-b747-105 { background-position: -912px -96px; width: 31px; height: 28px; margin: -14px 0 0 -15px; }
+.plane-b747-120 { background-position: -960px -96px; width: 29px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b747-135 { background-position: -1008px -96px; width: 26px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-b747-150 { background-position: -1056px -96px; width: 25px; height: 30px; margin: -15px 0 0 -12px; }
+.plane-b747-165 { background-position: -1104px -96px; width: 27px; height: 32px; margin: -16px 0 0 -13px; }
+
+.plane-a320-180 { background-position: 0px -144px; width: 21px; height: 24px; margin: -12px 0 0 -10px; }
+.plane-a320-195 { background-position: -48px -144px; width: 21px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-a320-210 { background-position: -96px -144px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-a320-225 { background-position: -144px -144px; width: 20px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-a320-240 { background-position: -192px -144px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-a320-255 { background-position: -240px -144px; width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-a320-270 { background-position: -288px -144px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-a320-285 { background-position: -336px -144px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-a320-300 { background-position: -384px -144px; width: 21px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-a320-315 { background-position: -432px -144px; width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-a320-330 { background-position: -480px -144px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-a320-345 { background-position: -528px -144px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-a320-0 { background-position: -576px -144px; width: 21px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-a320-15 { background-position: -624px -144px; width: 21px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-a320-30 { background-position: -672px -144px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-a320-45 { background-position: -720px -144px; width: 20px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-a320-60 { background-position: -768px -144px; width: 21px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-a320-75 { background-position: -816px -144px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-a320-90 { background-position: -864px -144px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-a320-105 { background-position: -912px -144px; width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-a320-120 { background-position: -960px -144px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-a320-135 { background-position: -1008px -144px; width: 20px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-a320-150 { background-position: -1056px -144px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-a320-165 { background-position: -1104px -144px; width: 21px; height: 23px; margin: -11px 0 0 -10px; }
+
+.plane-b737-180 { background-position: 0px -192px; width: 21px; height: 24px; margin: -12px 0 0 -10px; }
+.plane-b737-195 { background-position: -48px -192px; width: 21px; height: 24px; margin: -12px 0 0 -10px; }
+.plane-b737-210 { background-position: -96px -192px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-b737-225 { background-position: -144px -192px; width: 19px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-b737-240 { background-position: -192px -192px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-b737-255 { background-position: -240px -192px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-b737-270 { background-position: -288px -192px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-b737-285 { background-position: -336px -192px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-b737-300 { background-position: -384px -192px; width: 22px; height: 20px; margin: -10px 0 0 -11px; }
+.plane-b737-315 { background-position: -432px -192px; width: 20px; height: 20px; margin: -10px 0 0 -10px; }
+.plane-b737-330 { background-position: -480px -192px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-b737-345 { background-position: -528px -192px; width: 21px; height: 24px; margin: -12px 0 0 -10px; }
+.plane-b737-0 { background-position: -576px -192px; width: 22px; height: 24px; margin: -12px 0 0 -11px; }
+.plane-b737-15 { background-position: -624px -192px; width: 21px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-b737-30 { background-position: -672px -192px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-b737-45 { background-position: -720px -192px; width: 20px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-b737-60 { background-position: -768px -192px; width: 22px; height: 20px; margin: -10px 0 0 -11px; }
+.plane-b737-75 { background-position: -816px -192px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-b737-90 { background-position: -864px -192px; width: 22px; height: 23px; margin: -11px 0 0 -11px; }
+.plane-b737-105 { background-position: -912px -192px; width: 23px; height: 22px; margin: -11px 0 0 -11px; }
+.plane-b737-120 { background-position: -960px -192px; width: 22px; height: 21px; margin: -10px 0 0 -11px; }
+.plane-b737-135 { background-position: -1008px -192px; width: 20px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-b737-150 { background-position: -1056px -192px; width: 20px; height: 23px; margin: -11px 0 0 -10px; }
+.plane-b737-165 { background-position: -1104px -192px; width: 21px; height: 24px; margin: -12px 0 0 -10px; }
+
+.plane-b777-180 { background-position: 0px -240px; width: 26px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-b777-195 { background-position: -48px -240px; width: 25px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-b777-210 { background-position: -96px -240px; width: 23px; height: 29px; margin: -14px 0 0 -11px; }
+.plane-b777-225 { background-position: -144px -240px; width: 25px; height: 27px; margin: -13px 0 0 -12px; }
+.plane-b777-240 { background-position: -192px -240px; width: 28px; height: 24px; margin: -12px 0 0 -14px; }
+.plane-b777-255 { background-position: -240px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-270 { background-position: -288px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-285 { background-position: -336px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-300 { background-position: -384px -240px; width: 28px; height: 24px; margin: -12px 0 0 -14px; }
+.plane-b777-315 { background-position: -432px -240px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-b777-330 { background-position: -480px -240px; width: 23px; height: 30px; margin: -15px 0 0 -11px; }
+.plane-b777-345 { background-position: -528px -240px; width: 25px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-b777-0 { background-position: -576px -240px; width: 26px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-b777-15 { background-position: -624px -240px; width: 25px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-b777-30 { background-position: -672px -240px; width: 23px; height: 29px; margin: -14px 0 0 -11px; }
+.plane-b777-45 { background-position: -720px -240px; width: 25px; height: 27px; margin: -13px 0 0 -12px; }
+.plane-b777-60 { background-position: -768px -240px; width: 28px; height: 24px; margin: -12px 0 0 -14px; }
+.plane-b777-75 { background-position: -816px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-90 { background-position: -864px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-105 { background-position: -912px -240px; width: 30px; height: 26px; margin: -13px 0 0 -15px; }
+.plane-b777-120 { background-position: -960px -240px; width: 28px; height: 24px; margin: -12px 0 0 -14px; }
+.plane-b777-135 { background-position: -1008px -240px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-b777-150 { background-position: -1056px -240px; width: 23px; height: 30px; margin: -15px 0 0 -11px; }
+.plane-b777-165 { background-position: -1104px -240px; width: 25px; height: 31px; margin: -15px 0 0 -12px; }
+
+.plane-b757-180 { background-position: 0px -288px; width: 23px; height: 27px; margin: -13px 0 0 -11px; }
+.plane-b757-195 { background-position: -48px -288px; width: 22px; height: 27px; margin: -13px 0 0 -11px; }
+.plane-b757-210 { background-position: -96px -288px; width: 20px; height: 26px; margin: -13px 0 0 -10px; }
+.plane-b757-225 { background-position: -144px -288px; width: 22px; height: 24px; margin: -12px 0 0 -11px; }
+.plane-b757-240 { background-position: -192px -288px; width: 25px; height: 22px; margin: -11px 0 0 -12px; }
+.plane-b757-255 { background-position: -240px -288px; width: 26px; height: 23px; margin: -11px 0 0 -13px; }
+.plane-b757-270 { background-position: -288px -288px; width: 26px; height: 23px; margin: -11px 0 0 -13px; }
+.plane-b757-285 { background-position: -336px -288px; width: 27px; height: 23px; margin: -11px 0 0 -13px; }
+.plane-b757-300 { background-position: -384px -288px; width: 25px; height: 21px; margin: -10px 0 0 -12px; }
+.plane-b757-315 { background-position: -432px -288px; width: 22px; height: 23px; margin: -11px 0 0 -11px; }
+.plane-b757-330 { background-position: -480px -288px; width: 20px; height: 26px; margin: -13px 0 0 -10px; }
+.plane-b757-345 { background-position: -528px -288px; width: 22px; height: 27px; margin: -13px 0 0 -11px; }
+.plane-b757-0 { background-position: -576px -288px; width: 23px; height: 27px; margin: -13px 0 0 -11px; }
+.plane-b757-15 { background-position: -624px -288px; width: 22px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-b757-30 { background-position: -672px -288px; width: 21px; height: 26px; margin: -13px 0 0 -10px; }
+.plane-b757-45 { background-position: -720px -288px; width: 23px; height: 23px; margin: -11px 0 0 -11px; }
+.plane-b757-60 { background-position: -768px -288px; width: 25px; height: 21px; margin: -10px 0 0 -12px; }
+.plane-b757-75 { background-position: -816px -288px; width: 26px; height: 23px; margin: -11px 0 0 -13px; }
+.plane-b757-90 { background-position: -864px -288px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-b757-105 { background-position: -912px -288px; width: 26px; height: 23px; margin: -11px 0 0 -13px; }
+.plane-b757-120 { background-position: -960px -288px; width: 25px; height: 22px; margin: -11px 0 0 -12px; }
+.plane-b757-135 { background-position: -1008px -288px; width: 22px; height: 24px; margin: -12px 0 0 -11px; }
+.plane-b757-150 { background-position: -1056px -288px; width: 21px; height: 26px; margin: -13px 0 0 -10px; }
+.plane-b757-165 { background-position: -1104px -288px; width: 22px; height: 27px; margin: -13px 0 0 -11px; }
+
+.plane-b767-180 { background-position: 0px -336px; width: 26px; height: 29px; margin: -14px 0 0 -13px; }
+.plane-b767-195 { background-position: -48px -336px; width: 25px; height: 30px; margin: -15px 0 0 -12px; }
+.plane-b767-210 { background-position: -96px -336px; width: 23px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-b767-225 { background-position: -144px -336px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-b767-240 { background-position: -192px -336px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-b767-255 { background-position: -240px -336px; width: 28px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b767-270 { background-position: -288px -336px; width: 28px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b767-285 { background-position: -336px -336px; width: 29px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b767-300 { background-position: -384px -336px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-b767-315 { background-position: -432px -336px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-b767-330 { background-position: -480px -336px; width: 23px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-b767-345 { background-position: -528px -336px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-b767-0 { background-position: -576px -336px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-b767-15 { background-position: -624px -336px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-b767-30 { background-position: -672px -336px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-b767-45 { background-position: -720px -336px; width: 25px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-b767-60 { background-position: -768px -336px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-b767-75 { background-position: -816px -336px; width: 28px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b767-90 { background-position: -864px -336px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-b767-105 { background-position: -912px -336px; width: 28px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-b767-120 { background-position: -960px -336px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-b767-135 { background-position: -1008px -336px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-b767-150 { background-position: -1056px -336px; width: 23px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-b767-165 { background-position: -1104px -336px; width: 25px; height: 29px; margin: -14px 0 0 -12px; }
+
+.plane-a330-180 { background-position: 0px -384px; width: 27px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a330-195 { background-position: -48px -384px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a330-210 { background-position: -96px -384px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-a330-225 { background-position: -144px -384px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-a330-240 { background-position: -192px -384px; width: 28px; height: 25px; margin: -12px 0 0 -14px; }
+.plane-a330-255 { background-position: -240px -384px; width: 30px; height: 27px; margin: -13px 0 0 -15px; }
+.plane-a330-270 { background-position: -288px -384px; width: 29px; height: 28px; margin: -14px 0 0 -14px; }
+.plane-a330-285 { background-position: -336px -384px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a330-300 { background-position: -384px -384px; width: 27px; height: 25px; margin: -12px 0 0 -13px; }
+.plane-a330-315 { background-position: -432px -384px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-a330-330 { background-position: -480px -384px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-a330-345 { background-position: -528px -384px; width: 27px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a330-0 { background-position: -576px -384px; width: 27px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a330-15 { background-position: -624px -384px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a330-30 { background-position: -672px -384px; width: 24px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-a330-45 { background-position: -720px -384px; width: 24px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-a330-60 { background-position: -768px -384px; width: 27px; height: 25px; margin: -12px 0 0 -13px; }
+.plane-a330-75 { background-position: -816px -384px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a330-90 { background-position: -864px -384px; width: 29px; height: 28px; margin: -14px 0 0 -14px; }
+.plane-a330-105 { background-position: -912px -384px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a330-120 { background-position: -960px -384px; width: 28px; height: 25px; margin: -12px 0 0 -14px; }
+.plane-a330-135 { background-position: -1008px -384px; width: 24px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-a330-150 { background-position: -1056px -384px; width: 24px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-a330-165 { background-position: -1104px -384px; width: 27px; height: 30px; margin: -15px 0 0 -13px; }
+
+.plane-a343-180 { background-position: 0px -432px; width: 27px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a343-195 { background-position: -48px -432px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a343-210 { background-position: -96px -432px; width: 24px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-a343-225 { background-position: -144px -432px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-a343-240 { background-position: -192px -432px; width: 28px; height: 25px; margin: -12px 0 0 -14px; }
+.plane-a343-255 { background-position: -240px -432px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a343-270 { background-position: -288px -432px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a343-285 { background-position: -336px -432px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a343-300 { background-position: -384px -432px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-a343-315 { background-position: -432px -432px; width: 25px; height: 25px; margin: -12px 0 0 -12px; }
+.plane-a343-330 { background-position: -480px -432px; width: 24px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-a343-345 { background-position: -528px -432px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a343-0 { background-position: -576px -432px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a343-15 { background-position: -624px -432px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+.plane-a343-30 { background-position: -672px -432px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-a343-45 { background-position: -720px -432px; width: 24px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-a343-60 { background-position: -768px -432px; width: 27px; height: 24px; margin: -12px 0 0 -13px; }
+.plane-a343-75 { background-position: -816px -432px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a343-90 { background-position: -864px -432px; width: 29px; height: 28px; margin: -14px 0 0 -14px; }
+.plane-a343-105 { background-position: -912px -432px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-a343-120 { background-position: -960px -432px; width: 28px; height: 25px; margin: -12px 0 0 -14px; }
+.plane-a343-135 { background-position: -1008px -432px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-a343-150 { background-position: -1056px -432px; width: 24px; height: 29px; margin: -14px 0 0 -12px; }
+.plane-a343-165 { background-position: -1104px -432px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+
+.plane-a346-180 { background-position: 0px -480px; width: 26px; height: 33px; margin: -16px 0 0 -13px; }
+.plane-a346-195 { background-position: -48px -480px; width: 26px; height: 33px; margin: -16px 0 0 -13px; }
+.plane-a346-210 { background-position: -96px -480px; width: 24px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-a346-225 { background-position: -144px -480px; width: 26px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-a346-240 { background-position: -192px -480px; width: 30px; height: 25px; margin: -12px 0 0 -15px; }
+.plane-a346-255 { background-position: -240px -480px; width: 32px; height: 27px; margin: -13px 0 0 -16px; }
+.plane-a346-270 { background-position: -288px -480px; width: 32px; height: 28px; margin: -14px 0 0 -16px; }
+.plane-a346-285 { background-position: -336px -480px; width: 32px; height: 27px; margin: -13px 0 0 -16px; }
+.plane-a346-300 { background-position: -384px -480px; width: 30px; height: 25px; margin: -12px 0 0 -15px; }
+.plane-a346-315 { background-position: -432px -480px; width: 27px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-a346-330 { background-position: -480px -480px; width: 24px; height: 32px; margin: -16px 0 0 -12px; }
+.plane-a346-345 { background-position: -528px -480px; width: 26px; height: 33px; margin: -16px 0 0 -13px; }
+.plane-a346-0 { background-position: -576px -480px; width: 27px; height: 33px; margin: -16px 0 0 -13px; }
+.plane-a346-15 { background-position: -624px -480px; width: 26px; height: 33px; margin: -16px 0 0 -13px; }
+.plane-a346-30 { background-position: -672px -480px; width: 24px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-a346-45 { background-position: -720px -480px; width: 27px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-a346-60 { background-position: -768px -480px; width: 30px; height: 25px; margin: -12px 0 0 -15px; }
+.plane-a346-75 { background-position: -816px -480px; width: 32px; height: 27px; margin: -13px 0 0 -16px; }
+.plane-a346-90 { background-position: -864px -480px; width: 32px; height: 28px; margin: -14px 0 0 -16px; }
+.plane-a346-105 { background-position: -912px -480px; width: 32px; height: 27px; margin: -13px 0 0 -16px; }
+.plane-a346-120 { background-position: -960px -480px; width: 31px; height: 25px; margin: -12px 0 0 -15px; }
+.plane-a346-135 { background-position: -1008px -480px; width: 27px; height: 28px; margin: -14px 0 0 -13px; }
+.plane-a346-150 { background-position: -1056px -480px; width: 24px; height: 31px; margin: -15px 0 0 -12px; }
+.plane-a346-165 { background-position: -1104px -480px; width: 26px; height: 33px; margin: -16px 0 0 -13px; }
+
+.plane-rjx-180 { background-position: 0px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-rjx-195 { background-position: -48px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-rjx-210 { background-position: -96px -528px; width: 18px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-rjx-225 { background-position: -144px -528px; width: 19px; height: 20px; margin: -10px 0 0 -9px; }
+.plane-rjx-240 { background-position: -192px -528px; width: 20px; height: 19px; margin: -9px 0 0 -10px; }
+.plane-rjx-255 { background-position: -240px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-270 { background-position: -288px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-285 { background-position: -336px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-300 { background-position: -384px -528px; width: 20px; height: 19px; margin: -9px 0 0 -10px; }
+.plane-rjx-315 { background-position: -432px -528px; width: 19px; height: 19px; margin: -9px 0 0 -9px; }
+.plane-rjx-330 { background-position: -480px -528px; width: 18px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-rjx-345 { background-position: -528px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-rjx-0 { background-position: -576px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-rjx-15 { background-position: -624px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+.plane-rjx-30 { background-position: -672px -528px; width: 18px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-rjx-45 { background-position: -720px -528px; width: 18px; height: 20px; margin: -10px 0 0 -9px; }
+.plane-rjx-60 { background-position: -768px -528px; width: 20px; height: 19px; margin: -9px 0 0 -10px; }
+.plane-rjx-75 { background-position: -816px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-90 { background-position: -864px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-105 { background-position: -912px -528px; width: 21px; height: 21px; margin: -10px 0 0 -10px; }
+.plane-rjx-120 { background-position: -960px -528px; width: 20px; height: 19px; margin: -9px 0 0 -10px; }
+.plane-rjx-135 { background-position: -1008px -528px; width: 19px; height: 19px; margin: -9px 0 0 -9px; }
+.plane-rjx-150 { background-position: -1056px -528px; width: 18px; height: 21px; margin: -10px 0 0 -9px; }
+.plane-rjx-165 { background-position: -1104px -528px; width: 20px; height: 22px; margin: -11px 0 0 -10px; }
+
+.plane-md11-180 { background-position: 0px -576px; width: 27px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-md11-195 { background-position: -48px -576px; width: 26px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-md11-210 { background-position: -96px -576px; width: 23px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-md11-225 { background-position: -144px -576px; width: 26px; height: 26px; margin: -13px 0 0 -13px; }
+.plane-md11-240 { background-position: -192px -576px; width: 27px; height: 25px; margin: -12px 0 0 -13px; }
+.plane-md11-255 { background-position: -240px -576px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-md11-270 { background-position: -288px -576px; width: 30px; height: 27px; margin: -13px 0 0 -15px; }
+.plane-md11-285 { background-position: -336px -576px; width: 29px; height: 26px; margin: -13px 0 0 -14px; }
+.plane-md11-300 { background-position: -384px -576px; width: 27px; height: 25px; margin: -12px 0 0 -13px; }
+.plane-md11-315 { background-position: -432px -576px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-md11-330 { background-position: -480px -576px; width: 23px; height: 28px; margin: -14px 0 0 -11px; }
+.plane-md11-345 { background-position: -528px -576px; width: 25px; height: 30px; margin: -15px 0 0 -12px; }
+.plane-md11-0 { background-position: -576px -576px; width: 26px; height: 31px; margin: -15px 0 0 -13px; }
+.plane-md11-15 { background-position: -624px -576px; width: 25px; height: 30px; margin: -15px 0 0 -12px; }
+.plane-md11-30 { background-position: -672px -576px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-md11-45 { background-position: -720px -576px; width: 25px; height: 26px; margin: -13px 0 0 -12px; }
+.plane-md11-60 { background-position: -768px -576px; width: 28px; height: 25px; margin: -12px 0 0 -14px; }
+.plane-md11-75 { background-position: -816px -576px; width: 30px; height: 27px; margin: -13px 0 0 -15px; }
+.plane-md11-90 { background-position: -864px -576px; width: 30px; height: 27px; margin: -13px 0 0 -15px; }
+.plane-md11-105 { background-position: -912px -576px; width: 29px; height: 27px; margin: -13px 0 0 -14px; }
+.plane-md11-120 { background-position: -960px -576px; width: 27px; height: 25px; margin: -12px 0 0 -13px; }
+.plane-md11-135 { background-position: -1008px -576px; width: 26px; height: 27px; margin: -13px 0 0 -13px; }
+.plane-md11-150 { background-position: -1056px -576px; width: 24px; height: 28px; margin: -14px 0 0 -12px; }
+.plane-md11-165 { background-position: -1104px -576px; width: 26px; height: 30px; margin: -15px 0 0 -13px; }
+
+.plane-helo-180 { background-position: 0px -624px; width: 13px; height: 17px; margin: -8px 0 0 -6px; }
+.plane-helo-195 { background-position: -48px -624px; width: 14px; height: 17px; margin: -8px 0 0 -7px; }
+.plane-helo-210 { background-position: -96px -624px; width: 15px; height: 18px; margin: -9px 0 0 -7px; }
+.plane-helo-225 { background-position: -144px -624px; width: 16px; height: 17px; margin: -8px 0 0 -8px; }
+.plane-helo-240 { background-position: -192px -624px; width: 17px; height: 16px; margin: -8px 0 0 -8px; }
+.plane-helo-255 { background-position: -240px -624px; width: 17px; height: 15px; margin: -7px 0 0 -8px; }
+.plane-helo-270 { background-position: -288px -624px; width: 16px; height: 14px; margin: -7px 0 0 -8px; }
+.plane-helo-285 { background-position: -336px -624px; width: 16px; height: 15px; margin: -7px 0 0 -8px; }
+.plane-helo-300 { background-position: -384px -624px; width: 17px; height: 16px; margin: -8px 0 0 -8px; }
+.plane-helo-315 { background-position: -432px -624px; width: 16px; height: 17px; margin: -8px 0 0 -8px; }
+.plane-helo-330 { background-position: -480px -624px; width: 15px; height: 18px; margin: -9px 0 0 -7px; }
+.plane-helo-345 { background-position: -528px -624px; width: 14px; height: 17px; margin: -8px 0 0 -7px; }
+.plane-helo-0 { background-position: -576px -624px; width: 12px; height: 17px; margin: -8px 0 0 -6px; }
+.plane-helo-15 { background-position: -624px -624px; width: 14px; height: 17px; margin: -8px 0 0 -7px; }
+.plane-helo-30 { background-position: -672px -624px; width: 14px; height: 18px; margin: -9px 0 0 -7px; }
+.plane-helo-45 { background-position: -720px -624px; width: 16px; height: 17px; margin: -8px 0 0 -8px; }
+.plane-helo-60 { background-position: -768px -624px; width: 17px; height: 16px; margin: -8px 0 0 -8px; }
+.plane-helo-75 { background-position: -816px -624px; width: 16px; height: 15px; margin: -7px 0 0 -8px; }
+.plane-helo-90 { background-position: -864px -624px; width: 15px; height: 14px; margin: -7px 0 0 -7px; }
+.plane-helo-105 { background-position: -912px -624px; width: 16px; height: 15px; margin: -7px 0 0 -8px; }
+.plane-helo-120 { background-position: -960px -624px; width: 16px; height: 16px; margin: -8px 0 0 -8px; }
+.plane-helo-135 { background-position: -1008px -624px; width: 16px; height: 17px; margin: -8px 0 0 -8px; }
+.plane-helo-150 { background-position: -1056px -624px; width: 14px; height: 18px; margin: -9px 0 0 -7px; }
+.plane-helo-165 { background-position: -1104px -624px; width: 14px; height: 17px; margin: -8px 0 0 -7px; }

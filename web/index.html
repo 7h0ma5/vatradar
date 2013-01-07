@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>VATradar</title>
+    <script type="text/javascript">L_PREFER_CANVAS=true</script>
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/jsrender.js"></script>
+    <script type="text/javascript" src="/static/leaflet.js"></script>
+    <script type="text/javascript" src="/static/app.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/leaflet.css" />
+    <link type="text/css" rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <script id="info-template" type="text/x-jsrender">
+      <div class="plane-info">
+        <h1>{{>callsign}}</h1>
+
+        <table>
+          <tr>
+            <td colspan="4" class="realname">
+              {{>realname}}
+            </td>
+          </tr>
+          <tr>
+            <td>From</td>
+            <td><b>{{>origin}}</b></td>
+            <td>To</td>
+            <td><b>{{>destination}}</b></td>
+          <tr>
+            <td>Speed</td>
+            <td><b>{{>speed}}</b></td>
+            <td>Altitude</td>
+            <td><b>{{>altitude}}</b></td>
+          </tr>
+          <tr>
+            <td>Squawk</td>
+            <td><b>{{>squawk}}</b></td>
+          </tr>
+          <tr>
+            <td>Route</td>
+            <td colspan="3"><b>{{>route}}</b></td>
+          </tr>
+          <tr>
+            <td>Remarks</td>
+            <td colspan="3"><b>{{>remarks}}</b></td>
+          </tr>
+        </table>
+      </div>
+    </script>
+
+    <div id="sidebar">
+      VATradar
+    </div>
+    <div id="map">
+    </div>
+  </body>
+</html>
