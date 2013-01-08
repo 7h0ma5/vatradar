@@ -55,11 +55,12 @@ def atc(data):
     print(callsign, end="\r")
 
 def pilot(data):
+    pos = [float(data[5]), float(data[6])];
     update = {
         "callsign": data[0],
         "cid": to_int(data[1]),
         "realname": data[2],
-        "position": [float(data[5]), float(data[6])],
+        "position": pos,
         "altitude": to_int(data[7]),
         "speed": to_int(data[8]),
         "aircraft": data[9],
@@ -76,7 +77,10 @@ def pilot(data):
     }
 
     callsign = update["callsign"]
-    db.pilots.update({"callsign": callsign}, {"$set": update}, True)
+    db.pilots.update({"callsign": callsign}, {
+       "$set": update,
+       "$addToSet": {"path": pos}
+    }, True)
     print(callsign, end="\r")
 
 def client(data):

@@ -1,4 +1,6 @@
 var map;
+var planeLayer, atcLayer;
+var flightPath;
 
 function createIcon(pilot) {
     var hdg = Math.round(pilot.heading / 15) * 15;
@@ -46,7 +48,6 @@ function createIcon(pilot) {
     var icon = L.divIcon({
         className: "plane plane-" + type + hdg,
         iconSize: null,
-        iconAnchor: null,
         html: html,
     });
 
@@ -57,17 +58,23 @@ function pilotInfo(event) {
     $.getJSON("/pilots/" + this.callsign,
         function (data) {
             $("#sidebar").html($("#info-template").render(data));
+            if (flightPath) { map.removeLayer(flightPath); flightPath = null; }
+            if (data.path && data.path.length > 0) {
+                flightPath = L.polyline(data.path, {color: "red"});
+                flightPath.addTo(map);
+            }
         }
     );
 }
 
 function update() {
+    console.log("update!");
     $.getJSON("/pilots/",
         function (data) {
             data.forEach(function(pilot) {
                 var icon = createIcon(pilot);
                 var marker = L.marker(pilot.position, {icon: icon});
-                marker.addTo(map);
+                marker.addTo(planeLayer);
                 marker.on("click", pilotInfo, pilot);
             });
         }
@@ -81,17 +88,17 @@ function update() {
                     L.circle(atc.position, 5000, {
                         color: 'yellow',
                         weight: 2,
-                    }).addTo(map);
+                    }).addTo(atcLayer);
                 case 4:
                     L.circle(atc.position, 20000, {
                         color: 'red',
                         weight: 2,
-                    }).addTo(map);
+                    }).addTo(atcLayer);
                 case 5:
                     L.circle(atc.position, 50000, {
                         color: 'blue',
                         weight: 2,
-                    }).addTo(map);
+                    }).addTo(atcLayer);
                 }
             });
         }
@@ -108,7 +115,19 @@ $(document).ready(function() {
         zoomControl: true,
     }).addTo(map);
 
-    map.addControl(new L.Control.Scale());
+    planeLayer = L.layerGroup([]);
+    atcLayer = L.layerGroup([]);
+
+    planeLayer.addTo(map);
+    atcLayer.addTo(map);
+
+    overlays = {
+        "Planes": planeLayer,
+        "ATC": atcLayer,
+    }
+
+    L.control.layers([], overlays).addTo(map);
+    L.control.scale().addTo(map);
 
     update();
 });
